@@ -28,6 +28,13 @@ dependencies {
     testCompile 'junit:junit:4.12'
     compile 'com.android.support:appcompat-v7:23.2.0'
     compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+
+    compile'com.google.code.gson:gson:2.4' // Gson
+
+
+    compile 'com.squareup.retrofit2:retrofit:2.0.0-beta4'
+    compile 'com.squareup.retrofit2:converter-gson:2.0.0-beta4'
+    compile 'com.squareup.retrofit2:adapter-rxjava:2.0.0-beta4'
 }
 buildscript {
     ext.kotlin_version = '1.0.0'

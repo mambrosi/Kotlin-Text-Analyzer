@@ -5,5 +5,5 @@ package com.marcosambrosi.kotlinexperiment.model
  */
 class Model {
 
-    data class Quote(val author: String, val quote: String)
+    data class Sentiment(val positivity: Double, val negativity: Double)
 }
