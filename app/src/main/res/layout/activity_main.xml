@@ -10,20 +10,35 @@
     tools:context="com.marcosambrosi.kotlinexperiment.MainActivity">
 
     <EditText
+        android:id="@+id/thought"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/thought"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true" />
 
     <Button
+        android:id="@+id/sendThoughtButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Let&apos;s see.."
-        android:id="@+id/sendThought"
-        android:layout_below="@+id/thought"
+        android:layout_alignParentEnd="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
         android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/thought"
+        android:text="Let&apos;s see.." />
+
+    <LinearLayout
+        android:visibility="gone"
+        android:id="@+id/progressContainer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:orientation="horizontal">
+
+        <ProgressBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/progressBar" />
+    </LinearLayout>
 </RelativeLayout>
