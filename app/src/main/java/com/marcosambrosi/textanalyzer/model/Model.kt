@@ -1,4 +1,4 @@
-package com.marcosambrosi.kotlinexperiment.model
+package com.marcosambrosi.textanalyzer.model
 
 /**
  * Created by marcosambrosi on 3/13/16.

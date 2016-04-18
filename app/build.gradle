@@ -7,7 +7,7 @@ android {
     buildToolsVersion "23.0.2"
 
     defaultConfig {
-        applicationId "com.marcosambrosi.kotlinexperiment"
+        applicationId "com.marcosambrosi.textanalyzer"
         minSdkVersion 15
         targetSdkVersion 23
         versionCode 1

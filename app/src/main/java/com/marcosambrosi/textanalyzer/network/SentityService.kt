@@ -1,6 +1,6 @@
-package com.marcosambrosi.kotlinexperiment.network
+package com.marcosambrosi.textanalyzer.network
 
-import com.marcosambrosi.kotlinexperiment.model.Model
+import com.marcosambrosi.textanalyzer.model.Model
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory

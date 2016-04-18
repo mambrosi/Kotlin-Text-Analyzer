@@ -1,4 +1,4 @@
-package com.marcosambrosi.kotlinexperiment;
+package com.marcosambrosi.textanalyzer;
 
 import org.junit.Test;
 

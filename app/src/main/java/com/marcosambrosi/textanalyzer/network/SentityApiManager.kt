@@ -1,4 +1,4 @@
-package com.marcosambrosi.kotlinexperiment.network
+package com.marcosambrosi.textanalyzer.network
 
 /**
  * Created by marcosambrosi on 3/13/16.

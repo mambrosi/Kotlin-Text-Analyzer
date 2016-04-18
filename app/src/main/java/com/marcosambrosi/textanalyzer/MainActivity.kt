@@ -1,10 +1,10 @@
-package com.marcosambrosi.kotlinexperiment
+package com.marcosambrosi.textanalyzer
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.view.View
-import com.marcosambrosi.kotlinexperiment.model.Model
-import com.marcosambrosi.kotlinexperiment.network.SentityService
+import com.marcosambrosi.textanalyzer.model.Model
+import com.marcosambrosi.textanalyzer.network.SentityService
 import kotlinx.android.synthetic.main.activity_main.*
 import rx.Subscription
 import rx.android.schedulers.AndroidSchedulers
