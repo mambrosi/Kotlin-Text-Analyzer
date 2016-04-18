@@ -5,9 +5,7 @@ package com.marcosambrosi.kotlinexperiment.model
  */
 class Model {
 
-    data class Sentiment(val pos: Double, val neg: Double)
+    data  class Sentiment(val pos: Double, val neg: Double)
 
-    fun Sentiment.isPositive(): Boolean {
-        return pos > neg;
-    }
+
 }

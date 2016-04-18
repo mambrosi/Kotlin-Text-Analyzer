@@ -43,22 +43,42 @@ class MainActivity : AppCompatActivity() {
 
     }
 
+    private fun showEnterMode() {
+        thought.visibility = View.VISIBLE
+        progressContainer.visibility = View.GONE
+        message.visibility = View.GONE
+        sendThoughtButton.visibility = View.VISIBLE;
+    }
+
 
     fun showLoadingMode() {
-        thought.visibility = View.INVISIBLE;
-        progressContainer.visibility = View.VISIBLE;
+        thought.visibility = View.INVISIBLE
+        progressContainer.visibility = View.VISIBLE
+        message.visibility = View.GONE
     }
 
     fun showResult(sentiment: Model.Sentiment) {
-        thought.visibility = View.INVISIBLE;
-        sendThoughtButton.visibility = View.INVISIBLE;
-        progressContainer.visibility = View.GONE;
+        thought.visibility = View.INVISIBLE
+        sendThoughtButton.visibility = View.INVISIBLE
+        progressContainer.visibility = View.GONE
+
+        message.visibility = View.VISIBLE
+        if (sentiment.pos > sentiment.neg) {
+            message.text = getString(R.string.positive_message)
+        } else if(sentiment.neg > sentiment.pos){
+            message.text = getString(R.string.negative_message);
+        }else{
+            message.text = getString(R.string.neutral_message);
+        }
+
     }
 
     fun showResult(error: Throwable) {
         thought.visibility = View.INVISIBLE;
         sendThoughtButton.visibility = View.INVISIBLE;
         progressContainer.visibility = View.GONE;
+        message.visibility = View.VISIBLE
+        message.text = getString(R.string.error)
     }
 
     private var _compoSub = CompositeSubscription()
@@ -71,4 +91,21 @@ class MainActivity : AppCompatActivity() {
         }
 
     protected final fun manageSubscription(s: Subscription) = compoSub.add(s)
+
+    fun Model.Sentiment.isPositive(): Boolean {
+        return pos > neg;
+    }
+
+    override fun onBackPressed() {
+
+        if (message.visibility == View.VISIBLE) {
+            showEnterMode()
+        } else {
+            super.onBackPressed()
+        }
+
+
+    }
+
+
 }

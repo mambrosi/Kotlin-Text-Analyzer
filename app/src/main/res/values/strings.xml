@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Kotlin Experiment</string>
+    <string name="positive_message">You\'re a very positive person :)</string>
+    <string name="negative_message">Trust me, you don\'t want to be that person</string>
+    <string name="neutral_message">Well, this is neither good or bad..</string>
+    <string name="error">There was an error, please try again later</string>
 </resources>
