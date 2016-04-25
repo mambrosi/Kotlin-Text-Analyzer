@@ -1,4 +1,4 @@
-package com.marcosambrosi.textanalyzer
+ppackage com.marcosambrosi.textanalyzer
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
@@ -27,15 +27,12 @@ class MainActivity : AppCompatActivity() {
             showLoadingMode()
 
             manageSubscription(
-
                     service.getSentiment(thought?.text.toString()).
                             subscribeOn(Schedulers.io()).
                             observeOn(AndroidSchedulers.mainThread()).
                             subscribe(
                                     { t -> showResult(t) },
                                     { e -> showResult(e) })
-
-
             );
 
         }
@@ -43,7 +40,7 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-    private fun showEnterMode() {
+    fun showEnterMode() {
         thought.visibility = View.VISIBLE
         progressContainer.visibility = View.GONE
         message.visibility = View.GONE
@@ -55,6 +52,7 @@ class MainActivity : AppCompatActivity() {
         thought.visibility = View.INVISIBLE
         progressContainer.visibility = View.VISIBLE
         message.visibility = View.GONE
+        sendThoughtButton.visibility = View.GONE;
     }
 
     fun showResult(sentiment: Model.Sentiment) {
@@ -63,14 +61,8 @@ class MainActivity : AppCompatActivity() {
         progressContainer.visibility = View.GONE
 
         message.visibility = View.VISIBLE
-        if (sentiment.pos > sentiment.neg) {
-            message.text = getString(R.string.positive_message)
-        } else if(sentiment.neg > sentiment.pos){
-            message.text = getString(R.string.negative_message);
-        }else{
-            message.text = getString(R.string.neutral_message);
-        }
 
+        message.text = sentiment.getMessage();
     }
 
     fun showResult(error: Throwable) {
@@ -78,7 +70,7 @@ class MainActivity : AppCompatActivity() {
         sendThoughtButton.visibility = View.INVISIBLE;
         progressContainer.visibility = View.GONE;
         message.visibility = View.VISIBLE
-        message.text = getString(R.string.error)
+        message.text = getString(R.string.error);
     }
 
     private var _compoSub = CompositeSubscription()
@@ -92,19 +84,23 @@ class MainActivity : AppCompatActivity() {
 
     protected final fun manageSubscription(s: Subscription) = compoSub.add(s)
 
-    fun Model.Sentiment.isPositive(): Boolean {
-        return pos > neg;
+    fun Model.Sentiment.getMessage(): String {
+        if (pos > neg) {
+            return getString(R.string.positive_message);
+        } else if (neg > pos) {
+            return getString(R.string.negative_message);
+        } else {
+            return getString(R.string.neutral_message);
+        }
+        return "";
     }
 
     override fun onBackPressed() {
-
         if (message.visibility == View.VISIBLE) {
             showEnterMode()
         } else {
             super.onBackPressed()
         }
-
-
     }
 
 
